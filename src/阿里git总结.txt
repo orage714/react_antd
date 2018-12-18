@@ -1,0 +1,13 @@
+Linux命令：
+mkdir <file>//创建文件夹
+ls  ll查看文件名
+cd ~/.ssh 进入当前目录下隐藏目录
+mv ~/Downlocads 移动到下载我文件目录、
+git remote -v查看远程仓库名分支-v代表url详细信息可以不写
+git  config --global user.name ''配置用户名信息
+git config --global  user.email  smallorange
+git checkout -b 分支名  创建并跳转到分支上
+git log 显示所以提交过的版本信息  --pretty=oneline  只显示版本号和提交信息
+git reflog 可以查看分支所以操作纪录
+git log > /user/log.txt打印出commit在log文件
+git reset -hard 3c3267jf 回退到某个commit状态
