@@ -2,23 +2,23 @@ import React from 'react';
 import { Select } from 'antd'
 const Option = Select.Option;
 export default {
-    formateDate(time){
-        if(!time)return '';
+    formateDate(time) {
+        if (!time) return '';
         let date = new Date(time);
-        return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+        return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
     },
-    pagination(data,callback){
+    pagination(data, callback) {
         return {
-            onChange:(current)=>{
+            onChange: (current) => {
                 callback(current)
             },
-            current:data.result.page,
-            pageSize:data.result.page_size,
-            total: data.result.total_count,
-            showTotal:()=>{
-                return `共${data.result.total_count}条`
+            current: data.result.page,
+            pageSize: data.result.page_size,
+            total: data.result.total,
+            showTotal: () => {
+                return `共${data.result.total}条`
             },
-            showQuickJumper:true
+            showQuickJumper: true
         }
     },
     // 格式化金额,单位:分(eg:430分=4.30元)
@@ -51,12 +51,12 @@ export default {
         number += '';
         return number.replace(/(\d{3})\d*(\d{4})/g, '$1***********$2')
     },
-    getOptionList(data){
-        if(!data){
+    getOptionList(data) {
+        if (!data) {
             return [];
         }
         let options = [] //[<Option value="0" key="all_key">全部</Option>];
-        data.map((item)=>{
+        data.map((item) => {
             options.push(<Option value={item.id} key={item.id}>{item.name}</Option>)
         })
         return options;
